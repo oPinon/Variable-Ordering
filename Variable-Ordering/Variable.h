@@ -49,4 +49,5 @@ public:
 
 };
 
+double iterate(std::vector<Variable*>& variables, std::vector<HyperEdge*>& edges);
 
