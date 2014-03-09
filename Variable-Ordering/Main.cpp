@@ -14,9 +14,15 @@ int main( int argc, const char* argv[] )
 
 	std::vector<Variable*> variables = generator.getVariables();
 	std::vector<HyperEdge*> edges = generator.getEdges();
-	std::cout << "Initial span = " << getSpan(edges) << std::endl;
+		
+	int previousSpan = getSpan(edges);
+	std::cout << "Initial span = " << previousSpan << std::endl;
+	bool compute = true;
 
-	for(int i=0; i<20; i++) {
-		std::cout << "current span = " <<iterate(variables,edges) << std::endl;
+	while(compute) {
+		int currentSpan = iterate(variables,edges);
+		std::cout << "current span = " << currentSpan << std::endl;
+		if(currentSpan==previousSpan) { compute=false; }
+		previousSpan = currentSpan;
 	}
 }
