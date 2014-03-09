@@ -51,3 +51,4 @@ public:
 
 double iterate(std::vector<Variable*>& variables, std::vector<HyperEdge*>& edges);
 
+bool compare(const Variable* v1, const Variable* v2);

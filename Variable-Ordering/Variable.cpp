@@ -4,7 +4,7 @@
 #include <iostream>
 
 Variable::Variable(double position)
-  : position_(position)
+	: position_(position)
 {
 }
 
@@ -35,7 +35,7 @@ double iterate(std::vector<Variable*>& variables, std::vector<HyperEdge*>& edges
 		var.position() /= var.edges().size();
 	}
 
-	std::sort(variables.begin(),variables.end());
+	std::sort(variables.begin(),variables.end(),compare);
 
 	for(int i=0; i<variables.size(); i++) // set the variables' positions according to their order
 	{
@@ -52,4 +52,10 @@ double getSpan(const std::vector<HyperEdge*>& edges) {
 		span += e.getSpan();
 	}
 	return span;
+};
+
+bool
+	compare(const Variable* v1, const Variable* v2)
+{
+	return (*v1).position() < (*v2).position();
 };
