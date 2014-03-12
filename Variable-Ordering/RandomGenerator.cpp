@@ -1,9 +1,9 @@
 #include "RandomGenerator.h"
 #include <time.h> // for seeding std::srand()
 
-RandomGenerator::RandomGenerator(int nbVariables, int nbEdges, double avgVarPerEdge, double sdVarPerEdge)
+RandomGenerator::RandomGenerator(int nbVariables, int nbEdges, double avgVarPerEdge, double sdVarPerEdge, int seed)
 {
-	std::srand (time(NULL)); // seeding
+	std::srand (time(NULL)+seed); // seeding
 
 	for(int i=0; i<nbVariables; i++) {
 		this->variables.push_back( new Variable(i) );
