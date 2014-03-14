@@ -5,6 +5,7 @@
 
 #include "parsers/parse.hh"
 #include "force/Variable.h"
+#include "force/HyperEdge.h"
 
 int main(int argc, char** argv)
 {
