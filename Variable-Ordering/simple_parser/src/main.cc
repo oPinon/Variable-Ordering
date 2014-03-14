@@ -98,23 +98,23 @@ int main(int argc, char** argv)
   
 	std::ofstream myfile;
 	myfile.open ("evolution.csv", std::ios_base::app);
-
-		myfile << getSpan(edges) << ',';
+	
+	myfile << '"' << argv[2] << '"' << ',';
+	myfile << getSpan(edges) << ',';
 		
-		int counter = 0;
-		int previousSpan;		
-		for(unsigned int iteration=0; (counter<10)&&(iteration<1000); iteration++) {
-			int currentSpan = iterate(variables,edges);
-			myfile << currentSpan << ',';
-			if(currentSpan==previousSpan) {counter++;}
-			previousSpan = currentSpan;
-		}
-		myfile << std::endl;
+	int counter = 0;
+	int previousSpan;		
+	for(unsigned int iteration=0; (counter<10)&&(iteration<1000); iteration++) {
+		int currentSpan = iterate(variables,edges);
+		myfile << currentSpan << ',';
+		if(currentSpan==previousSpan) {counter++;}
+		previousSpan = currentSpan;
+	}
+	myfile << std::endl;
 
 	myfile.close();
 
-	std::cout << "done" << std::endl;
-	return 0;
+	std::cout << "done with " << argv[2] << std::endl;
 
   return 0;
 }
