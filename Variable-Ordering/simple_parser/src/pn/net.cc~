@@ -77,7 +77,7 @@ net::add_place(const std::string& pid, unsigned int marking)
   const auto cit = places_by_id().find(pid);
   if (cit == places_by_id().cend())
   {
-    return *places_set.get<insertion_index>().push_back(pn::place(pid, marking)).first;
+    return *places_set.get<insertion_index>().emplace_back(pid, marking).first;
   }
   else
   {

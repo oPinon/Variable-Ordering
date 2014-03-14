@@ -97,11 +97,17 @@ int main(int argc, char** argv)
   // Vous pouvez maintenant utiliser edges et variables
   
 	std::ofstream myfile;
-	myfile.open ("evolution.csv");
+	myfile.open ("evolution.csv", std::ios_base::app);
 
 		myfile << getSpan(edges) << ',';
-		for(int iteration = 0; iteration<500; iteration++) {
-			myfile << iterate(variables,edges) << ',';
+		
+		int counter = 0;
+		int previousSpan;		
+		for(unsigned int iteration=0; (counter<10)&&(iteration<1000); iteration++) {
+			int currentSpan = iterate(variables,edges);
+			myfile << currentSpan << ',';
+			if(currentSpan==previousSpan) {counter++;}
+			previousSpan = currentSpan;
 		}
 		myfile << std::endl;
 
