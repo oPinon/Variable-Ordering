@@ -2,6 +2,7 @@
 #include "HyperEdge.h"
 #include <algorithm> // for sort()
 #include <iostream>
+#include <time.h> // for seeding std::srand()
 
 Variable::Variable(double position)
 	: position_(position)
@@ -58,4 +59,8 @@ bool
 	compare(const Variable* v1, const Variable* v2)
 {
 	return (*v1).position() < (*v2).position();
+};
+
+void shuffle(std::vector<Variable*>& variables) {
+	std::srand (time(NULL));
 };
