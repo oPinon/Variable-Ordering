@@ -93,9 +93,11 @@ int main(int argc, char** argv)
     edges.push_back(&e);
   }
 
+	refreshPositions(variables);
+
   /*--------------------------------------------------------------------------*/
-  // Vous pouvez maintenant utiliser edges et variables
-  
+  // Vous pouvez maintenant utiliser edges et variables	
+
 	std::ofstream myfile;
 	myfile.open ("evolution.csv", std::ios_base::app);
 	

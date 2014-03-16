@@ -38,10 +38,8 @@ double iterate(std::vector<Variable*>& variables, std::vector<HyperEdge*>& edges
 
 	std::sort(variables.begin(),variables.end(),compare);
 
-	for(int i=0; i<variables.size(); i++) // set the variables' positions according to their order
-	{
-		(*variables[i]).position() = i;
-	}
+	refreshPositions(variables);
+
 	return getSpan(edges);
 };
 
@@ -59,6 +57,13 @@ bool
 	compare(const Variable* v1, const Variable* v2)
 {
 	return (*v1).position() < (*v2).position();
+};
+
+void refreshPositions(std::vector<Variable*>& variables){
+		for(int i=0; i<variables.size(); i++) // set the variables' positions according to their order
+	{
+		(*variables[i]).position() = i;
+	}
 };
 
 void shuffle(std::vector<Variable*>& variables) {

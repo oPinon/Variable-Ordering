@@ -54,3 +54,5 @@ double iterate(std::vector<Variable*>& variables, std::vector<HyperEdge*>& edges
 bool compare(const Variable* v1, const Variable* v2);
 
 void shuffle(std::vector<Variable*>& variables);
+
+void refreshPositions(std::vector<Variable*>& variables);
